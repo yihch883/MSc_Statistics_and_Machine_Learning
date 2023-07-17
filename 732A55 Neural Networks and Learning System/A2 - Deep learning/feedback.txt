@@ -1,0 +1,2 @@
+Much better answer now. Although the background is not just noise. For example the color of the background might be very important to separate some of the classes. Like boats are most likely on a blue background, etc.
+
