@@ -2,7 +2,7 @@
 ## Lab 1 and 2 are individual tasks, lab3~6 are team projects
 
 ### Lab Team
-* Yi-Hung Chen [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/yi-hung-chen-7aa54120a/)
+* Yi-Hung Chen [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/yi-hung-eric-chen-7aa54120a)
 * Kyriakos Papadopoulos [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/kyriakos-papadopoulos-0295461a0/)
 
 ### GitHub Usernames
