@@ -1,4 +1,7 @@
 # Labs of 732A94 Advanced Programming in R
+Course website
+https://www.ida.liu.se/~732A94/info/courseinfo.en.shtml
+
 ## Lab 1 and 2 are individual tasks, lab3~6 are team projects
 
 ### Lab Team
