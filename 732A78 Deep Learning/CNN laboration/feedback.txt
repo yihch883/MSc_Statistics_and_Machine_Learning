@@ -1,0 +1,17 @@
+Question 6, yes we quickly run out of pixels
+
+
+
+Question 8, conv2D is almost a 3D convolution, it uses different filters for each channel
+
+
+
+You can just write Conv2D instead of   tf.keras.layers.Conv2D
+
+
+
+Question 16, conv2D learns a unique filter for each channel, not the same filter for all channels, almost a 3D convolution
+
+
+
+Question 23, yes the images are different in every epoch which makes training harder, instead of showing the same images over and over
