@@ -1,0 +1,14 @@
+Hello,
+
+
+
+You have done a great work! Very detailed report with well defined answers to each of the questions.
+
+
+
+Only a small additional information with regards to Assignment 1:
+
+
+
+1.5 In addition to your observations about significance of log(λ) = −2.8569 and log(λ) = −4, it is also good to have a look at confidence intervals (see grey lines on the plot). The confidence intervals of log(λ) = −2.8569 and log(λ) = −4 overlap greatly, this also indicates that prediction with optimal lambda is not significantly better than log(λ) = −4.
+
