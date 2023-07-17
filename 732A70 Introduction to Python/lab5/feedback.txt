@@ -1,0 +1,25 @@
+Hi. Here are some comments about your submission:
+
+
+
+5g. What this question asks it to calculate the norm of the difference between Ax and b, i.e., np.norm(A.T @ np.linalg.lstsq(...) - b), to show that what you get is an actual solution to the system of equations.
+
+
+
+5l. You should be calculating the rank of houses.data, not just houses, which is indeed 8.
+
+
+
+6f. Your subspaces implementation is incomplete. As the question states, if the rank of data is less than k you should only use that many rows. This is the case for large values of k.
+
+
+
+6g. You forgot to remove your original implementation of the classification.
+
+
+
+6h. - Note that when indexing a range in Python the first value is inclusive but the last is exclusive, so the range [0:600] includes 0 but not 600. Therefore your range for the validation data should start at 600 and not 601.
+
+
+
+Good work. You have passed this assignment.

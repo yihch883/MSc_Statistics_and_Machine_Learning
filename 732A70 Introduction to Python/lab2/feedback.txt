@@ -1,0 +1,52 @@
+You have still dodged 2.4d, but I'll pass you for effort.
+
+
+
+ ⸻
+
+
+
+Note: I will number the subsections 2.1, 2.2 and so on (regardless of the names they have). In every subsection I'll designate the tasks by letters in alphabetical order regardless if the instructions deviate from this system. This is to eliminate ambiguity. Be aware that this may require you to count to find out which task I'm referring to!
+
+
+
+For example:
+
+
+
+The task to write a correct version of the provided buggy function is called 2.3c.
+
+
+
+⸻⸻⸻⸻⸻⸻
+
+
+
+2.1g It would be even better accommodating the length of the keys that you actually have, like so:
+
+
+
+
+def print_kwargs(*args,**kwargs):
+    keywidth = max(map(len, kwargs.keys()))
+    for key,value in kwargs.items():
+        print(f'{key:<{keywidth}} -> {value}')
+
+
+2.3a Eloquent!
+
+
+
+2.4a Instead of using a flag, you could just set last_index to its fallback value -1 at the start. If nothing is found it won't have been reassigned when you get to the (unconditional) return statement.
+
+
+
+2.4b Limpid explanation.
+
+
+
+2.4d This is still misunderstood. You shouldn't make some sort of objects out of the content of a file and feed them to last_idx, but pass (the object representing) the file itself as the first argument to last_idx.
+
+
+
+It should be said, that while you avoided the actual question, you did so in a very thorough manner.
