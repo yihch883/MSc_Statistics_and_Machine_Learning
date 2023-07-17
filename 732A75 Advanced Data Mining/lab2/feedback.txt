@@ -1,0 +1,2 @@
+For the rules we ask you to find, it requires that the antecedent does not contain the class attribute and the consequent only contains the cluster attribute. 
+Please update the rules you highlight in your report.

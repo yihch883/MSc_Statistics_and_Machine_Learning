@@ -1,0 +1,2 @@
+Looks good! One minor comment below:
+For the reason of ignoring the name, we have to ignore it as distance calculation based SimpleKmeans is not defined for string attributes even if an attribute in string means reasonable something.

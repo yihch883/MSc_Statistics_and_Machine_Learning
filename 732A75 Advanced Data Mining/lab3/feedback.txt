@@ -1,0 +1,2 @@
+looks good! One minor comment below:
+A brief conclusion can be that we can find for this Monk1 problem, the basic distance calculation-based method cannot guarantee such classification, since it is a binary outcome of the logical formula.
