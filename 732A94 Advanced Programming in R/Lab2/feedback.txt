@@ -1,0 +1,1 @@
+You passed all the tests, good work! A little note about sheldon_game, as pointed out in the lab pdf, it could have been solved using the cyclical structure and modulus operator instead of listing all scenarios.

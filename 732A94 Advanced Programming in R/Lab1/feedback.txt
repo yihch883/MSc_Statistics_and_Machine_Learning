@@ -1,0 +1,1 @@
+You passed all the test. However, I have a small comment on my_magic_list(). As instructed in the lab pdf, you should have used my_num_vector() and my_magic_matrix() to generate the vector and matrix, instead of writing them again manually.

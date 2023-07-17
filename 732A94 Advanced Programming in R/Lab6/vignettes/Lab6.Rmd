@@ -1,0 +1,144 @@
+---
+title: "Lab6"
+author: "Yi Hung Chen, Kyriakos Papadopoulos"
+date: "03/10/2022"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lab6}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Description
+
+This Package contains 3 different algorithms for solving the **knapsack problem**. The 3 algorithms that we use are
+
+1.  Brute force search
+2.  Dynamic Programming
+3.  Greedy Heuristic
+
+```{r, include = FALSE}
+RNGversion(min(as.character(getRversion()),"3.5.3"))
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+set.seed(42, kind = "Mersenne-Twister", normal.kind = "Inversion")
+n <- 2000
+knapsack_objects <-
+data.frame(
+w=sample(1:4000, size = n, replace = TRUE),
+v=runif(n = n, 0, 10000)
+)
+```
+
+```{r setup}
+library(Lab6)
+```
+
+### brute_force_knapsack(x,W,parallel = FALSE)
+
+> The complexity of the algorithm is 2\^(n) as avaluates all possible combinations
+
+-   x -\> The matrix which contains the weight and value of each item
+-   W -\> The total weight that knapsack fit
+-   parallel -\> By default is false and it gives the opportunity to the user to select if he/she wants to run the algorithm in parallel.
+
+```{r, eval=TRUE, include=TRUE}
+brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+brute_force_knapsack(x = knapsack_objects[1:12,], W = 3500)
+brute_force_knapsack(x = knapsack_objects[1:8,], W = 2000)
+brute_force_knapsack(x = knapsack_objects[1:12,], W = 2000)
+```
+
+The time that it takes to run the algorithm for n=16 is 144.68s 
+
+(Since the run time is high, we do not run the code in real time when vignette is created)
+
+### knapsack_dynamic(x,W)
+
+> This algorithm iterates all possible values of W. It will run in Wn.
+
+-   x -\> The matrix which contains the weight and value of each item
+-   W -\> The total weight that knapsack fit
+
+```{r, eval=TRUE, include=TRUE}
+knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
+knapsack_dynamic(x = knapsack_objects[1:12,], W = 3500)
+knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
+knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
+```
+
+The time that it takes to run the algorithm for n=500 is 2.28 seconds.
+
+### greedy_knapsack(x,W)
+> This algorithm will not give an exact result but it's complexity is nlogn
+
+-   x -\> The matrix which contains the weight and value of each item
+-   W -\> The total weight that knapsack fit
+
+```{r, eval=TRUE, include=TRUE}
+greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
+```
+
+The time that it takes to run the algorithm for n=1000000 is 0.09s seconds.
+
+
+### Profiling
+>After using profvis to profile our brute_force algorithm, we found out using get_value and get_indexes in brute_force is one of the bottleneck, so we did some change in get_value & get_indexes function
+
+We remove the for loop in both functions, and replace it with "rowSums"
+```{r}
+get_indexes<- function(vector,data){
+  indexes <- which(vector == 1)
+  
+  sum <- 0
+  if (exists("indexes"))
+  {
+    # for (i in indexes){
+    #   sum <- sum + data[i, 1]
+    # }
+    sum <- sum(rowSums(as.matrix(data[indexes, 1])))
+
+  }
+  return(sum)
+}
+```
+
+```{r}
+get_value <- function(vector,data){
+  indexes <- which(vector == 1)
+  sum <- 0
+  if (exists("indexes"))
+  {
+    #for (i in indexes){
+    # sum <- sum + data[i, 2]
+    #}
+    sum <- sum(rowSums(as.matrix(data[indexes, 2])))
+  }
+  return(sum)
+}
+```
+
+We use knapsack_objects[1:12,] to test our result and we got 8% speed improvement 
+(Originally 2.33 secs and After 2.14 secs)
+
+### Parallelizing
+>We using parallelizing to create the dataframe with all combinations in brute force algorithm. 
+
+```{r, eval=FALSE}
+  if (parallel == TRUE) {
+    cores <- parallel::detectCores()
+    cl <- parallel::makeCluster(cores, type = "PSOCK")
+
+    n <- nrow(x)
+    l <- rep(list(0:1), n)
+    
+    combinations<- parallel::parLapply(cl, 1:(2^n), function(x) as.integer(intToBits(x)))
+    parallel::stopCluster(cl)
+   }
+```
+  
+However, the improvement is not noticeable. Using system.time to check with 12 elements. We notice that we got slight improvement in User instruction but lose time in System instruction. 

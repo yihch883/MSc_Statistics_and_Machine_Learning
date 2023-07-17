@@ -1,0 +1,74 @@
+---
+title: "Lab5_API_vignette"
+author: "Yi Hung Chen, Kyriakos Papadopoulos"
+date: "28/09/2022"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lab5_API_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Description
+This package contains ggmap package which has direct access to **OpenStreetMaps via Stamen Tiles** and shows winds and crimes in Huston.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, message=FALSE}
+library(Lab5)
+```
+
+### Find_crime_from_type(data, type)
+> It returns a plot with spots on the map showning where the specific crime took place
+
+* data -> The input of data should be the crime rda file that are in our package and you can call them with just `crime`
+* type -> the type of the crime that you want to see. The available options are:
+1. theft
+2. auto theft
+3. murder
+4. robbery
+5. aggravated assault
+6. burglary
+
+```{r, eval=TRUE, include=TRUE}
+find_crime_from_type(crime, "robbery")
+```
+
+### Find_crime_from_month(data, time)
+> It returns a plot with spots on the map of all crimes that happened in the spesific month
+
+* data -> The input of data should be the crime rda file that are in our package and you can call them with just `crime`
+* time -> the month that you want to see the crimes. The only months that are available are from january to august and you should insert time argument with an integer value correspoind to the month and not with a string
+
+```{r, eval=TRUE, include=TRUE}
+find_crime_from_month(crime, 1)
+```
+
+### find_crime_from_time_and_type(data, type, time)
+> It returns a plot with spots on the map for the spesific crime that happened in the spesific month
+
+* data -> same with above9
+* time -> same with above
+* type -> same with above
+
+
+```{r, eval=TRUE, include=TRUE}
+find_crime_from_time_and_type(crime, "robbery", 1)
+```
+
+
+### wind_plot(min, max)
+> It returns a plot with the winds in huston with the speed of min to max
+
+* min -> the minimum value of winds' speed that will be shown in the map 
+* max -> the maximum value of winds' speed that will be shown in the map 
+
+```{r, eval=TRUE, include=TRUE}
+wind_plot(1, 100)
+```
+

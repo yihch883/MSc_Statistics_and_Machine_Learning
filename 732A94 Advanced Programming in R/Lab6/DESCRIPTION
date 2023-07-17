@@ -1,0 +1,18 @@
+Package: Lab6
+Type: Package
+Title: Knapsack Pacakge
+Version: 1.0
+Date: 2022-09-30
+Author: Yi Hung Chen, Kyriakos Papadopoulos
+Maintainer: Yi Hung Chen<yihch883@student.liu.se> ,Kyriakos Papadopoulos<kyrpa853@student.liu.se>
+Description: Lab 6 Package. Using different algorithim to solve knapsack problem.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.2.1
+Depends: R (>= 3.5.0), parallel ,utils
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
