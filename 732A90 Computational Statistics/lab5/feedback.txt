@@ -1,0 +1,9 @@
+some minor comments:
+
+
+
+Q1.3. To see if T is significantly different from 0, you can use confidence interval (say 95%) of the distribution and see if T=0 is included inside the intervals or not. P-quantile is calculated by P(T<0). Calculating P(T=0) will almost always results in 0, since T is a continuous distribution.
+
+
+
+Q1.5. There's a minor mistake in your permutation test data. By using Y_sample<-sample(lottery$Draft_No, n), you shuffled Y from the original data, not from the given data which has simulated Y values. 
