@@ -34,5 +34,9 @@ It contains 1 simple lab that relates to Statistical Methods. Mainly discuss wha
 ### 732A75 Advanced Data Mining
 Labs using Weka to perform Clustering and Association Analysis.
 
+### 732A98 Visualization
+It contains 6 labs using R. Contents include utilizing different R packages for visualization purposes and studying the effect of different visualization techniques.
+
+
 ### 732A60 Advanced Academic Studies
 It contains a short academic report that I wrote about "Plagiarism in the Context of higher education."
